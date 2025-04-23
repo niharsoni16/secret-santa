@@ -54,73 +54,6 @@ export class AppComponent {
         secretEmail:a[3],
       }
     })
-    // console.log("this.empList",this.empList);
-    // console.log("this.pastRecord",this.pastRecord);
-    // this.empList = [
-    //   {
-    //     name: "Employee_Name",
-    //     email: "Employee_EmailID"
-    //   },
-    //   {
-    //     name: "Alice Johnson",
-    //     email: "alice.johnson@acme.com"
-    //   },
-    //   {
-    //     name: "Bob Smith",
-    //     email: "bob.smith@acme.com"
-    //   },
-    //   {
-    //     name: "Carol Davis",
-    //     email: "carol.davis@acme.com"
-    //   },
-    //   {
-    //     name: "David Miller",
-    //     email: "david.miller@acme.com"
-    //   },
-    //   {
-    //     name: "Eva Thompson",
-    //     email: "eva.thompson@acme.com"
-    //   }
-    // ]
-
-    // this.pastRecord = [
-    //   {
-    //     name: "Employee_Name",
-    //     email: "Employee_EmailID",
-    //     secretChild: "Secret_Child_Name",
-    //     secretEmail: "Secret_Child_EmailID"
-    //   },
-    //   {
-    //     name: "Alice Johnson",
-    //     email: "alice.johnson@acme.com",
-    //     secretChild: "Bob Smith",
-    //     secretEmail: "bob.smith@acme.com"
-    //   },
-    //   {
-    //     name: "Bob Smith",
-    //     email: "bob.smith@acme.com",
-    //     secretChild: "Carol Davis",
-    //     secretEmail: "carol.davis@acme.com"
-    //   },
-    //   {
-    //     name: "Carol Davis",
-    //     email: "carol.davis@acme.com",
-    //     secretChild: "David Miller",
-    //     secretEmail: "david.miller@acme.com"
-    //   },
-    //   {
-    //     name: "David Miller",
-    //     email: "david.miller@acme.com",
-    //     secretChild: "Eva Thompson",
-    //     secretEmail: "eva.thompson@acme.com"
-    //   },
-    //   {
-    //     name: "Eva Thompson",
-    //     email: "eva.thompson@acme.com",
-    //     secretChild: "Alice Johnson",
-    //     secretEmail: "alice.johnson@acme.com"
-    //   }
-    // ]
     
   }
 
@@ -142,7 +75,7 @@ export class AppComponent {
       const violator = needsFix[0];
       this.handleSingleViolation(violator);
     }else if (needsFix.length > 1) {
-      // Multiple violations
+      // Multiple violations ( here we will swap internally )
       this.handleMultipleViolations(needsFix);
     }
     console.log("Final Secret Santa List:", this.empList);
@@ -152,7 +85,6 @@ export class AppComponent {
 
 
   // #Upload File region start
-  
   onFileChange(event: any) {
     const files = event.target.files;
   
@@ -187,7 +119,6 @@ export class AppComponent {
       }
     }
   }
-  
   // #Upload File region end
 
 
@@ -209,9 +140,7 @@ export class AppComponent {
     const data: Blob = new Blob([excelBuffer], { type: 'application/octet-stream' });
     FileSaver.saveAs(data, `SecretSantaList_${new Date().getTime()}.xlsx`);
   }
-  
   // #download File region end
-
 
 
   // #helper region start
@@ -293,12 +222,10 @@ export class AppComponent {
   }
   clearStorage() {
     localStorage.clear();
-    // this.uploadedFiles = [];
     this.employeeFileName = '';
     this.pastRecordFileName = '';
     console.log("LocalStorage cleared.");
   }
-  
   // #helper region end
 
 
