@@ -1,0 +1,86 @@
+.container {
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  li {
+    margin: 5px 0;
+  }
+  
+  .valid {
+    color: green;
+    margin-left: 10px;
+  }
+  
+  .invalid {
+    color: red;
+    margin-left: 10px;
+  }
+  
+  button {
+    margin: 10px 5px 0 0;
+    padding: 6px 14px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .clear {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .footer {
+    margin-top: 20px;
+    font-size: 14px;
+    background: #f2f2f2;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .button-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  
+  .primary-btn {
+    background-color: #1976d2; /* Primary blue */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .primary-btn:hover {
+    background-color: #115293;
+  }
+
+  .danger-btn {
+    background-color: #d32f2f; /* Bootstrap red */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .danger-btn:hover {
+    background-color: #9a0007;
+  }
+  
+  
+  

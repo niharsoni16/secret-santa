@@ -1,0 +1,29 @@
+<div class="container">
+  <h2>Secret Santa Generator</h2>
+
+  <input type="file" (change)="onFileChange($event)" accept=".xls, .xlsx" multiple />
+
+  <div *ngIf="uploadedFiles.length > 0">
+    <p>Uploaded Files:</p>
+    <ul>
+      <li *ngFor="let file of uploadedFiles">
+        {{ file.name }}
+        <span [ngClass]="{ 'valid': file.valid === true, 'invalid': file.valid === false }">
+          {{ file.valid === true ? '✔️' : file.valid === false ? '❌' : '' }}
+        </span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="button-row">
+    <button class="primary-btn" (click)="assignSecretSanta($event)">Calculate</button>
+    <button *ngIf="empList.length > 1" class="primary-btn" (click)="downloadAsExcel()">Download Secret Santa</button>
+  </div>
+  
+  <div class="footer">
+    <p><strong>Employee List:</strong> {{ employeeFileName || 'No file uploaded' }}</p>
+    <p><strong>Past Record:</strong> {{ pastRecordFileName || 'No file uploaded' }}</p>
+    <button class="danger-btn" (click)="clearStorage()">🗑️ Clear Storage</button>
+
+  </div>
+</div>
