@@ -29,6 +29,7 @@ export class AppComponent {
   uploadedFiles: UploadedFile[] = [];
   employeeFileName: string = '';
   pastRecordFileName: string = '';
+  errorMessage: string = '';
 
   constructor() { }
 
@@ -40,6 +41,12 @@ export class AppComponent {
   formatData(){
     let empList:any = localStorage.getItem("employees");
     let pastRecord:any = localStorage.getItem("pastRecord");
+    if(!empList || !pastRecord){
+      this.errorMessage = '❌ Insufficient data! Please upload both Employee and Past Record files.'
+      console.log(this.errorMessage);
+      return;
+    }
+    this.errorMessage = '';
     this.empList = JSON.parse(empList).map((a:any)=>{
       return {
         name:a[0],
@@ -59,7 +66,7 @@ export class AppComponent {
 
   assignSecretSanta(event:any){
     this.formatData();
-    this.assignSanta();
+    if(this.empList && this.pastRecord) this.assignSanta();
   }
 
   assignSanta() {
@@ -227,6 +234,4 @@ export class AppComponent {
     console.log("LocalStorage cleared.");
   }
   // #helper region end
-
-
 }
